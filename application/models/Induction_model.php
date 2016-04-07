@@ -154,6 +154,20 @@ class Induction_model extends CI_Model{
 		}
 	}
 
+	/**
+	* Pour supprimer une induction
+	*
+	*/
+	function get_induction_expire(){
+		$this->db->select('*');
+		$this->db->from($this->_table_induction);
+		$this->db->join($this->_table_society,$this->_table_society.'.'.$this->_id_societe.'='.$this->_table_induction.'.'.$this->_code_societe,'left');
+		$this->db->where($this->_table_induction.'.'.$this->_valid,'O');
+		$this->db->where($this->_table_induction.'.'.$this->_date_expiration.'>',date('y-m-d'));
+		$this->db->limit(10,0);
+		return $this->db->get()->result();
+	}
+
 
 
 }
