@@ -6,10 +6,12 @@ class Dashboard extends CI_Controller {
 
 
 
+
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('user_model');
 		$this->load->model('Induction_model');
+    $this->_data['titre'] ='ContourGlobal';
 		//$this->output->enable_profiler(true);
 
 
@@ -24,10 +26,8 @@ class Dashboard extends CI_Controller {
 
 		if($this->user_model->isLoggedIn()){
 			$this->load->library('layout');
-
 			$this->_data['inductions'] = $this->Induction_model->get_induction_expire();
 			$this->layout->view('dashboard',$this->_data);
-			//var_dump($this->_data['inductions']);
 		}else {
 			$this->load->view('login',$this->_data);
 		}

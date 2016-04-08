@@ -72,6 +72,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <?php
+                      /*var_dump(validation_errors());
 
                     if((validation_errors()!="")){
                         echo'<div class="alert alert-danger" role="alert">';
@@ -79,7 +80,7 @@
                         echo' <span class="sr-only">Error:</span>';
                         echo validation_errors();
                         echo'</div>';
-                    }
+                    }*/
                     if(isset($error_authentification) && !empty($error_authentification)){
                         echo'<div class="alert alert-danger" role="alert">';
                         echo'<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ';
